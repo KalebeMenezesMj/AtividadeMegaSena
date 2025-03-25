@@ -9,12 +9,22 @@
 </head>
 <body>
 
-        <form action=method = "POST" action = "#">
-            <label for="usuario">Digite o nome de usuario</label>
-            <input type="text" id="usuario" name="usuario" required>
-            <input type="submit" value="Entrar" name="btnUser">
-        </form>
+    <form action=method = "POST" action = "#">
+         <label for="usuario">Digite um email</label><br>
+         <input type="text" id="usuario" name="usuario" required><br>
 
+         <label for="senha">Digite sua senha</label><br>
+         <input type="text" id="senha" name = "senha" required>
+
+        <input type="submit" value="Entrar" name="btnUser">
+    </form>
+
+        <?php 
+
+            $email = "aluno@fatec.edu.br";
+            $senha = "alunoweb2";
+
+        ?>
 
 
 </body>
