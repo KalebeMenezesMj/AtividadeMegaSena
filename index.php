@@ -135,7 +135,22 @@
                         
                     }
                 }
+
+                $nomeArquivo = "aposta" . $data . ".txt";
+                    if (file_exists($nomeArquivo)) {
+                        $conteudo = file_get_contents($nomeArquivo);
+
+                         echo "<h2>Conteúdo do Arquivo:</h2>";
+                        
+                         echo "<pre>" . htmlspecialchars($conteudo) . "</pre>";
+                } else {
+                    echo "<p>Arquivo não encontrado.</p>";
+                }
             }
+        
+                    
+
+            
 
 
             ?>

@@ -1,0 +1,3 @@
+Numeros: 24 26 27 28 35 45 
+Aposta: 23 44 55 12 34 2 
+ Acertos: 0

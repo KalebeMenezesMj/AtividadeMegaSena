@@ -1,3 +1,0 @@
-Numeros: 8 9 14 33 45 54 
-Aposta: 5 5 5 5 5 5 
-Acertos: 0
