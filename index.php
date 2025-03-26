@@ -1,3 +1,9 @@
+<?php 
+
+   
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -40,9 +46,6 @@
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 echo "<h2> Os Resultados Foram </h2>";
-
-
-
 
 
                 $numero = array();
