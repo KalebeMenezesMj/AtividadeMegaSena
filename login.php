@@ -4,7 +4,7 @@ if (isset($_POST["btnUser"])) {
 
     session_start();
 
-    $_SESSION["usuario"] = $_POST["usuario"];
+    $_SESSION["usuario"] = $_POST["email"];
     header("location: index.php");
 }
 

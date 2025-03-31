@@ -1,6 +1,20 @@
-<?php 
+<?php
+session_start();
 
-   
+if (isset($_SESSION["usuario"])) {
+
+    $usuario = $_SESSION["usuario"];
+} else {
+    header("location: login.php");
+}
+
+if (isset($_POST["btnSair"])) {
+
+    session_unset();
+    session_destroy();
+    header("location: login.php");
+}
+
 
 ?>
 
@@ -15,7 +29,24 @@
 </head>
 
 <body>
+
+
+
     <div id="borda">
+
+        <header class="">
+            <h1>Session&API</h1>
+
+            <div class="">
+                <p><strong><?php echo "Olá, " . $usuario; ?></strong></p>
+                <form action="#" method="post">
+                    <input type="submit" value="Sair" name="btnSair">
+                </form>
+            </div>
+
+            <br><br>
+        </header>
+
         <h1> Jogo Tigrinho </h1>
 
         <div id="tigrinho"><img class="tigrinho" src="imagens/jogo-do-tigrinho-1716593543429_v2_450x450.png" alt="">
@@ -104,53 +135,52 @@
                 }
 
                 date_default_timezone_set("America/Sao_Paulo");
-                
+
                 if (isset($_POST["btnCriar"])) {
 
                     $ano = date("Y");
                     $mes = date("M");
                     $dia = date("d");
                     $hora = date("s");
-                    $data = $dia . "-" . $mes . "-" . $ano . "-". $hora;
+                    $data = $dia . "-" . $mes . "-" . $ano . "-" . $hora;
 
-                    $arquivo = fopen("aposta" . $data. ".txt" , "a");
+                    $arquivo = fopen("aposta" . $data . ".txt", "a");
 
                     if ($arquivo) {
-                        
-                        fwrite($arquivo,"Numeros: ");
-                        for($i = 0; $i <= 5; $i++ ){
-                            
-                            fwrite($arquivo,$numero[$i]." ");
+
+                        fwrite($arquivo, "Numeros: ");
+                        for ($i = 0; $i <= 5; $i++) {
+
+                            fwrite($arquivo, $numero[$i] . " ");
                         }
-                        
+
                         fwrite($arquivo, "\n");
 
-                        fwrite($arquivo,"Aposta: ");
-                        for($i = 0; $i <= 5; $i++ ){
-                            
-                            fwrite($arquivo,$numeroUsuario[$i]." ");
+                        fwrite($arquivo, "Aposta: ");
+                        for ($i = 0; $i <= 5; $i++) {
+
+                            fwrite($arquivo, $numeroUsuario[$i] . " ");
                         }
 
-                        fwrite($arquivo,"\n ");
+                        fwrite($arquivo, "\n ");
 
-                        fwrite($arquivo,"Acertos: " . $quantidadeAcertos);     
+                        fwrite($arquivo, "Acertos: " . $quantidadeAcertos);
                         fclose($arquivo);
-                        
                     }
                 }
 
                 $nomeArquivo = "aposta" . $data . ".txt";
-                    if (file_exists($nomeArquivo)) {
-                        $conteudo = file_get_contents($nomeArquivo);
+                if (file_exists($nomeArquivo)) {
+                    $conteudo = file_get_contents($nomeArquivo);
 
-                         echo "<h2>Conteúdo do Arquivo:</h2>";
-                        
-                         echo "<pre>" . htmlspecialchars($conteudo) . "</pre>";
+                    echo "<h2>Conteúdo do Arquivo:</h2>";
+
+                    echo "<pre>" . htmlspecialchars($conteudo) . "</pre>";
                 } else {
                     echo "<p>Arquivo não encontrado.</p>";
                 }
             }
-        
+
             ?>
         </div>
 
