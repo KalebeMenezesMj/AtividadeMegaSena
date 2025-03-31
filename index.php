@@ -35,7 +35,7 @@ if (isset($_POST["btnSair"])) {
     <div id="borda">
 
         <header class="">
-            <h1>Session&API</h1>
+            <h1></h1>
 
             <div class="">
                 <p><strong><?php echo "Olá, " . $usuario; ?></strong></p>
@@ -168,18 +168,29 @@ if (isset($_POST["btnSair"])) {
                         fclose($arquivo);
                     }
                 }
+            }
 
-                $nomeArquivo = "aposta" . $data . ".txt";
-                if (file_exists($nomeArquivo)) {
-                    $conteudo = file_get_contents($nomeArquivo);
 
-                    echo "<h2>Conteúdo do Arquivo:</h2>";
+            echo "<h2>Apostas anteriores</h2>";
 
-                    echo "<pre>" . htmlspecialchars($conteudo) . "</pre>";
-                } else {
-                    echo "<p>Arquivo não encontrado.</p>";
+            $diretorio = dir("./");
+            //procurar diretorios
+
+            while ($arquivo = $diretorio->read()) {
+                if (str_contains($arquivo, ".txt")) {
+
+                    echo "<hr>";
+
+                    $conteudo = file_get_contents($arquivo);
+                    echo nl2br("<pre>" . $conteudo . "</pre>");
+
+                    echo "<br>";
+
                 }
             }
+
+
+
 
             ?>
         </div>
