@@ -15,6 +15,11 @@ if (isset($_POST["btnSair"])) {
     header("location: login.php");
 }
 
+if(isset($_POST["btnLoja"])){
+
+    header("location: loja.php");
+}
+
 
 ?>
 
@@ -41,6 +46,7 @@ if (isset($_POST["btnSair"])) {
                 <p><strong><?php echo "Olá, " . $usuario; ?></strong></p>
                 <form action="#" method="post">
                     <input type="submit" value="Sair" name="btnSair">
+                    <input type="submit" value="Acessar Loja" name="btnLoja">
                 </form>
             </div>
 
