@@ -1,3 +1,0 @@
-Numeros: 4 13 26 37 48 52 
-Aposta: 8 5 6 21 22 5 
- Acertos: 0

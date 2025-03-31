@@ -1,3 +1,0 @@
-Numeros: 1 5 13 21 46 49 
-Aposta: 8 5 6 21 22 5 
- Acertos: 2
