@@ -15,7 +15,7 @@ if (isset($_POST["btnSair"])) {
     header("location: login.php");
 }
 
-if(isset($_POST["btnLoja"])){
+if (isset($_POST["btnLoja"])) {
 
     header("location: loja.php");
 }
@@ -181,7 +181,7 @@ if(isset($_POST["btnLoja"])){
 
             $diretorio = dir("./");
             //procurar diretorios
-
+            
             while ($arquivo = $diretorio->read()) {
                 if (str_contains($arquivo, ".txt")) {
 

@@ -3,26 +3,20 @@
 session_start();
 
 if (isset($_SESSION["usuario"])) {
-
     $usuario = $_SESSION["usuario"];
 } else {
     header("location: login.php");
 }
 
 if (isset($_POST["btnSair"])) {
-
     session_unset();
     session_destroy();
     header("location: login.php");
 }
 
 if (isset($_POST["btnAposta"])) {
-
     header("location: index.php");
 }
-
-
-
 
 $api_url = 'https://fakestoreapi.com/products';
 $response = file_get_contents($api_url);
@@ -48,10 +42,8 @@ if (!$products) {
         <h4>Tigrinho Store</h4>
         <div class="navbar">
             <form action="#" method="POST">
-                
                 <input type="submit" value="Apostar" name="btnAposta" class="btn-apostar">
                 <input type="submit" value="Sair" name="btnSair" class="btn-sair">
-
             </form>
         </div>
     </nav>
@@ -68,7 +60,8 @@ if (!$products) {
                         <h2 class="product-title"><?= $product['title'] ?></h2>
                         <p class="product-description"><?= $product['description'] ?></p>
                         <p class="product-price">R$ <?= number_format($product['price'], 2, ',', '.') ?></p>
-                    </div>
+                        <a href="finalizar.php?produto=<?= urlencode($product['title']) ?>" class="btn-comprar">Comprar</a>
+                        </div>
                 </div>
             <?php endforeach; ?>
         </div>
